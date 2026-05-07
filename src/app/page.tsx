@@ -104,49 +104,44 @@ export default function HomePage() {
 
         <div className="max-w-[1200px] mx-auto px-6 py-20 w-full relative z-10">
           {/* Available badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[rgba(56,82,180,0.3)] bg-[rgba(56,82,180,0.08)] mb-8">
-            <div className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse-custom" />
-            <span className="font-['JetBrains_Mono'] text-[12px] text-[var(--text-secondary)]">
-              Available for freelance work
+          <div className="flex items-center gap-3 mb-6">
+            <span className="flex h-2 w-2 rounded-full bg-green-500 animate-pulse-custom" />
+            <span className="font-mono text-[12px] text-[var(--text-secondary)]">
+              Available for new projects
             </span>
           </div>
 
           {/* Main heading */}
-          <h1 className="font-['Syne'] font-extrabold text-[clamp(48px,7vw,90px)] leading-[1.05] text-[var(--text-primary)] mb-6 max-w-[900px]">
-            Hi, I'm Omar —<br />
-            I build{' '}
-            <TypeWriter texts={['web apps.', 'REST APIs.', 'full stacks.', 'your idea.']} />
+          <h1 className="font-display font-extrabold text-[clamp(48px,7vw,90px)] leading-[1.05] text-[var(--text-primary)] mb-6 max-w-[900px]">
+            Building Digital<br />
+            <span className="text-[var(--accent)]">Experiences</span> that Matter.
           </h1>
 
-          <p className="font-['DM_Sans'] text-[clamp(16px,2vw,19px)] text-[var(--text-secondary)] leading-[1.7] max-w-[580px] mb-10">
-            MERN Stack Developer with 2+ years of freelance experience shipping
-            production-ready full-stack applications — from e-commerce platforms
-            to content systems and everything in between.
+          <p className="font-body text-[clamp(16px,2vw,19px)] text-[var(--text-secondary)] leading-[1.7] max-w-[580px] mb-10">
+            Freelance Full-Stack Developer specializing in high-performance web applications and beautiful user interfaces.
           </p>
 
           {/* CTA buttons */}
           <div className="flex flex-wrap gap-4 mb-14">
             <Link
               href="/projects"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[var(--accent)] text-white font-['DM_Sans'] font-semibold text-base no-underline transition-all duration-200 hover:bg-[var(--accent-light)] hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl bg-[var(--accent)] text-white font-body font-semibold text-base no-underline transition-all duration-200 hover:bg-[var(--accent-light)] hover:-translate-y-0.5"
             >
               View My Work <ArrowRight size={18} />
             </Link>
 
-            <a
-              href="https://drive.google.com/file/d/1Aj6BXq1NHRCgLnoZxe7Ji_2slawAdT49/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] font-['DM_Sans'] font-semibold text-base no-underline transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            <Link
+              href="/about"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] font-body font-semibold text-base no-underline transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
               <Download size={18} /> Download CV
-            </a>
+            </Link>
           </div>
 
           {/* Social links */}
-          <div className="flex items-center gap-4">
-            <span className="text-[var(--text-muted)] text-[13px] font-['JetBrains_Mono']">
-              find me on
+          <div className="flex items-center gap-4 mt-12 opacity-60">
+            <span className="text-[var(--text-muted)] text-[13px] font-mono">
+              Expert in:
             </span>
             {[
               { icon: Github, href: 'https://github.com/omergehad405/omergehad405', label: 'GitHub' },
@@ -173,7 +168,7 @@ export default function HomePage() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={title}
-                className="w-10 h-10 rounded-xl border border-[var(--border)] flex items-center justify-center text-[var(--text-muted)] no-underline text-[11px] font-['Syne'] font-bold transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                className="w-10 h-10 rounded-xl border border-[var(--border)] flex items-center justify-center text-[var(--text-muted)] no-underline text-[11px] font-display font-bold transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
                 {label}
               </a>
@@ -187,10 +182,10 @@ export default function HomePage() {
         <div className="max-w-[1200px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-8">
           {stats.map(({ value, label }) => (
             <div key={label} className="text-center">
-              <div className="font-['Syne'] font-extrabold text-[56px] text-[var(--accent)] leading-none mb-2">
+              <div className="font-display font-extrabold text-[56px] text-[var(--accent)] leading-none mb-2">
                 {value}
               </div>
-              <div className="font-['DM_Sans'] text-[var(--text-muted)] text-[15px]">
+              <div className="font-body text-[var(--text-muted)] text-[15px]">
                 {label}
               </div>
             </div>
@@ -201,10 +196,14 @@ export default function HomePage() {
       {/* ─── SKILLS MARQUEE ─── */}
       <section className="py-12 border-t border-b border-[var(--border)] overflow-hidden relative">
         <div className="flex animate-marquee w-max">
-          {[...skills, ...skills].map((skill, i) => (
-            <span key={i} className="inline-flex items-center gap-2 px-8 font-['JetBrains_Mono'] text-sm text-[var(--text-muted)] whitespace-nowrap">
-              <span className="text-[var(--accent)] text-[18px]">·</span>
-              {skill}
+          {[...Array(2)].map((_, i) => (
+            <span key={i} className="inline-flex items-center gap-2 px-8 font-mono text-sm text-[var(--text-muted)] whitespace-nowrap">
+              <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+              {skills.map((skill, j) => (
+                <span key={j} className="flex items-center gap-2">
+                  {skill} {j < skills.length - 1 && <span className="text-[var(--accent)] text-[18px]">·</span>}
+                </span>
+              ))}
             </span>
           ))}
         </div>
@@ -213,9 +212,9 @@ export default function HomePage() {
       {/* ─── SERVICES ─── */}
       <section className="px-6 py-[100px] bg-[var(--bg-primary)]">
         <div className="max-w-[1200px] mx-auto">
-          <p className="section-tag">What I Do</p>
-          <h2 className="font-['Syne'] font-extrabold text-[clamp(32px,4vw,52px)] text-[var(--text-primary)] mb-4">
-            Services I Offer
+          <p className="section-tag">Solutions</p>
+          <h2 className="font-display font-extrabold text-[clamp(32px,4vw,52px)] text-[var(--text-primary)] mb-4">
+            My Services
           </h2>
           <p className="text-[var(--text-secondary)] text-[17px] leading-[1.7] max-w-[520px] mb-14">
             From concept to launch — I handle the full development lifecycle.
@@ -223,20 +222,16 @@ export default function HomePage() {
 
           <div className="grid grid-cols-[repeat(auto-fit,minmax(260px,1fr))] gap-6">
             {services.map(({ icon: Icon, title, desc }, i) => (
-              <div
-                key={title}
-                className="card-hover p-8 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] relative overflow-hidden"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[rgba(56,82,180,0.1)] flex items-center justify-center text-[var(--accent)] mb-5">
-                  <Icon size={22} />
+              <div key={i} className="group p-8 rounded-3xl border border-[var(--border)] bg-[var(--bg-card)] hover:border-[var(--accent)] transition-all duration-300 hover:-translate-y-2">
+                <div className="w-12 h-12 rounded-2xl bg-[rgba(232,98,42,0.1)] flex items-center justify-center text-[var(--accent)] mb-6 group-hover:scale-110 transition-transform">
+                  <Icon size={24} />
                 </div>
-                <h3 className="font-['Syne'] font-bold text-[19px] text-[var(--text-primary)] mb-2.5">
+                <h3 className="font-display font-bold text-[19px] text-[var(--text-primary)] mb-2.5">
                   {title}
                 </h3>
                 <p className="text-[var(--text-secondary)] text-[15px] leading-[1.6]">
                   {desc}
                 </p>
-                <div className="absolute -top-[30px] -right-[30px] w-[100px] h-[100px] rounded-full bg-[rgba(56,82,180,0.05)]" />
               </div>
             ))}
           </div>
@@ -246,9 +241,9 @@ export default function HomePage() {
       {/* ─── FREELANCE PLATFORMS ─── */}
       <section className="px-6 py-20 bg-[var(--bg-secondary)] border-t border-[var(--border)]">
         <div className="max-w-[1200px] mx-auto">
-          <p className="section-tag">Hire Me</p>
-          <h2 className="font-['Syne'] font-extrabold text-[clamp(28px,4vw,48px)] text-[var(--text-primary)] mb-10">
-            Find Me On
+          <p className="section-tag">Ecosystem</p>
+          <h2 className="font-display font-extrabold text-[clamp(28px,4vw,48px)] text-[var(--text-primary)] mb-10">
+            Platforms I Use
           </h2>
           <div className="flex flex-wrap gap-4">
             {[
@@ -264,9 +259,9 @@ export default function HomePage() {
                 rel="noopener noreferrer"
                 className="card-hover flex items-center gap-4 p-5 px-7 rounded-[14px] border border-[var(--border)] bg-[var(--bg-card)] no-underline flex-1 min-w-[220px]"
               >
-                <div className="font-['Syne'] font-extrabold text-[18px] text-[var(--text-primary)] flex-grow">
+                <div className="font-display font-extrabold text-[18px] text-[var(--text-primary)] flex-grow">
                   {name}
-                  <div className="font-['DM_Sans'] font-normal text-[13px] text-[var(--text-muted)] mt-[3px]">
+                  <div className="font-body font-normal text-[13px] text-[var(--text-muted)] mt-[3px]">
                     {desc}
                   </div>
                 </div>
@@ -282,27 +277,25 @@ export default function HomePage() {
         <div className="max-w-[800px] mx-auto text-center">
           <div className="inline-block px-15 py-25 rounded-3xl border border-[var(--border)] bg-[var(--bg-card)] relative overflow-hidden md:px-[60px] md:py-[100px]">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[var(--accent)] rounded-full blur-[100px] opacity-[0.06] pointer-events-none" />
-            <h2 className="font-['Syne'] font-extrabold text-[clamp(28px,4vw,52px)] text-[var(--text-primary)] mb-4 relative z-10">
+            <h2 className="font-display font-extrabold text-[clamp(28px,4vw,52px)] text-[var(--text-primary)] mb-4 relative z-10">
               Got a project in mind?
             </h2>
             <p className="text-[var(--text-secondary)] text-[17px] leading-[1.7] mb-9 relative z-10">
               Let's turn your idea into a polished digital product. I'm available for freelance projects right now.
             </p>
-            <div className="flex flex-wrap gap-4 justify-center relative z-10">
+            <div className="flex flex-wrap justify-center gap-4 relative z-10">
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[var(--accent)] text-white font-['DM_Sans'] font-semibold text-base no-underline transition-all duration-200 hover:bg-[var(--accent-light)]"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[var(--accent)] text-white font-body font-semibold text-base no-underline transition-all duration-200 hover:bg-[var(--accent-light)]"
               >
                 Let's Talk <ArrowRight size={18} />
               </Link>
-              <a
-                href="https://drive.google.com/file/d/1Aj6BXq1NHRCgLnoZxe7Ji_2slawAdT49/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] font-['DM_Sans'] font-semibold text-base no-underline transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] font-body font-semibold text-base no-underline transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
               >
-                <Download size={18} /> Get My CV
-              </a>
+                View Portfolio
+              </Link>
             </div>
           </div>
         </div>

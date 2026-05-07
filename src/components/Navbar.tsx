@@ -38,10 +38,10 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="no-underline">
             <div className="flex items-center gap-[10px]">
-              <div className="w-9 h-9 bg-[var(--accent)] rounded-lg flex items-center justify-center font-['Syne'] font-extrabold text-base text-white">
+              <div className="w-9 h-9 bg-[var(--accent)] rounded-lg flex items-center justify-center font-display font-extrabold text-base text-white">
                 OG
               </div>
-              <span className="font-['Syne'] font-bold text-[18px] text-[var(--text-primary)]">
+              <span className="font-display font-bold text-[18px] text-[var(--text-primary)]">
                 Omar Gehad
               </span>
             </div>
@@ -53,7 +53,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 rounded-lg font-['DM_Sans'] font-medium text-[15px] no-underline transition-all duration-200 ${
+                className={`px-4 py-2 rounded-lg font-body font-medium text-[15px] no-underline transition-all duration-200 ${
                   pathname === link.href
                     ? 'text-[var(--accent)] bg-[rgba(56,82,180,0.1)]'
                     : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
@@ -78,7 +78,7 @@ export default function Navbar() {
             {/* CTA */}
             <Link
               href="/contact"
-              className="hidden lg:block px-5 py-[10px] rounded-xl bg-[var(--accent)] text-white font-['DM_Sans'] font-semibold text-sm no-underline transition-all duration-200 hover:bg-[var(--accent-light)]"
+              className="hidden lg:block px-5 py-[10px] rounded-xl bg-[var(--accent)] text-white font-body font-semibold text-sm no-underline transition-all duration-200 hover:bg-[var(--accent-light)]"
             >
               Hire Me
             </Link>
@@ -102,7 +102,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`block px-4 py-[14px] rounded-xl font-['DM_Sans'] font-medium text-base no-underline mb-1 ${
+              className={`block px-4 py-[14px] rounded-xl font-body font-medium text-base no-underline mb-1 ${
                 pathname === link.href
                   ? 'text-[var(--accent)] bg-[rgba(56,82,180,0.1)]'
                   : 'text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
@@ -114,7 +114,7 @@ export default function Navbar() {
           <Link
             href="/contact"
             onClick={() => setMenuOpen(false)}
-            className="block mt-3 px-4 py-[14px] rounded-xl bg-[var(--accent)] text-white font-['DM_Sans'] font-semibold text-base no-underline text-center hover:bg-[var(--accent-light)]"
+            className="block mt-3 px-4 py-[14px] rounded-xl bg-[var(--accent)] text-white font-body font-semibold text-base no-underline text-center hover:bg-[var(--accent-light)]"
           >
             Hire Me
           </Link>

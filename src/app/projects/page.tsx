@@ -127,7 +127,7 @@ export default function ProjectsPage() {
         <div className="absolute -top-[200px] -left-[100px] w-[500px] h-[500px] bg-[#3B82F6] rounded-full blur-[120px] opacity-[0.06]" />
         <div className="max-w-[1200px] mx-auto">
           <p className="section-tag">Portfolio</p>
-          <h1 className="font-['Syne'] font-extrabold text-[clamp(40px,6vw,80px)] text-[var(--text-primary)] leading-[1.05] mb-5">
+          <h1 className="font-display font-extrabold text-[clamp(40px,6vw,80px)] text-[var(--text-primary)] leading-[1.05] mb-5">
             My Projects
           </h1>
           <p className="text-[var(--text-secondary)] text-[17px] leading-[1.7] max-w-[560px]">
@@ -144,7 +144,7 @@ export default function ProjectsPage() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2 rounded-full border transition-all duration-200 cursor-pointer font-['DM_Sans'] font-medium text-sm ${
+                className={`px-5 py-2 rounded-full border transition-all duration-200 cursor-pointer font-body font-medium text-sm ${
                   activeFilter === cat
                     ? 'border-[var(--accent)] bg-[rgba(232,98,42,0.12)] text-[var(--accent)]'
                     : 'border-[var(--border)] bg-transparent text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)]'
@@ -188,7 +188,7 @@ export default function ProjectsPage() {
                   )}
                   {project.featured && (
                     <div 
-                      className="absolute top-4 left-4 px-3 py-1 rounded-full text-white text-[11px] font-['JetBrains_Mono'] font-medium z-[2]"
+                      className="absolute top-4 left-4 px-3 py-1 rounded-full text-white text-[11px] font-mono font-medium z-[2]"
                       style={{ background: project.color }}
                     >
                       Featured
@@ -198,10 +198,10 @@ export default function ProjectsPage() {
 
                 {/* Content */}
                 <div className="p-6 grow flex flex-col">
-                  <div className="font-['JetBrains_Mono'] text-[11px] text-[var(--text-muted)] mb-2 uppercase tracking-[0.1em]">
+                  <div className="font-mono text-[11px] text-[var(--text-muted)] mb-2 uppercase tracking-[0.1em]">
                     {project.category}
                   </div>
-                  <h3 className="font-['Syne'] font-bold text-xl text-[var(--text-primary)] mb-2.5">
+                  <h3 className="font-display font-bold text-xl text-[var(--text-primary)] mb-2.5">
                     {project.title}
                   </h3>
                   <p className="text-[var(--text-secondary)] text-sm leading-[1.6] mb-5 grow">
@@ -221,7 +221,7 @@ export default function ProjectsPage() {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[var(--accent)] text-white font-['DM_Sans'] font-semibold text-[13px] no-underline transition-all duration-200 hover:bg-[var(--accent-light)] flex-1 justify-center"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-[var(--accent)] text-white font-body font-semibold text-[13px] no-underline transition-all duration-200 hover:bg-[var(--accent-light)] flex-1 justify-center"
                     >
                       <ExternalLink size={14} /> Live Demo
                     </a>
@@ -229,7 +229,7 @@ export default function ProjectsPage() {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border)] text-[var(--text-secondary)] font-['DM_Sans'] font-semibold text-[13px] no-underline transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border)] text-[var(--text-secondary)] font-body font-semibold text-[13px] no-underline transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
                     >
                       <Github size={14} />
                     </a>
@@ -244,7 +244,7 @@ export default function ProjectsPage() {
       {/* ─── CTA ─── */}
       <section className="px-6 py-20 bg-[var(--bg-secondary)] border-t border-[var(--border)] text-center">
         <div className="max-w-[600px] mx-auto">
-          <h2 className="font-['Syne'] font-extrabold text-[clamp(28px,4vw,44px)] text-[var(--text-primary)] mb-4">
+          <h2 className="font-display font-extrabold text-[clamp(28px,4vw,44px)] text-[var(--text-primary)] mb-4">
             Want to build something?
           </h2>
           <p className="text-[var(--text-secondary)] text-base leading-[1.7] mb-8">
@@ -252,7 +252,7 @@ export default function ProjectsPage() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[var(--accent)] text-white font-['DM_Sans'] font-semibold text-base no-underline transition-all duration-200 hover:bg-[var(--accent-light)]"
+            className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-[var(--accent)] text-white font-body font-semibold text-base no-underline transition-all duration-200 hover:bg-[var(--accent-light)]"
           >
             Start a Project <ArrowRight size={18} />
           </Link>

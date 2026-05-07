@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        display: ['Syne', 'sans-serif'],
-        body: ['DM Sans', 'sans-serif'],
+        display: ['Bricolage Grotesque', 'sans-serif'],
+        body: ['Plus Jakarta Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {

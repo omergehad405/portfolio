@@ -58,7 +58,7 @@ export default function ContactPage() {
         <div className="absolute -top-[200px] -right-[200px] w-[500px] h-[500px] bg-[var(--accent)] rounded-full blur-[120px] opacity-[0.07]" />
         <div className="max-w-[1200px] mx-auto">
           <p className="section-tag">Contact</p>
-          <h1 className="font-['Syne'] font-extrabold text-[clamp(40px,6vw,80px)] text-[var(--text-primary)] leading-[1.05] mb-5">
+          <h1 className="font-display font-extrabold text-[clamp(40px,6vw,80px)] text-[var(--text-primary)] leading-[1.05] mb-5">
             Let's build<br />something great.
           </h1>
           <p className="text-[var(--text-secondary)] text-[17px] leading-[1.7] max-w-[520px]">
@@ -72,7 +72,7 @@ export default function ContactPage() {
         <div className="max-w-[1200px] mx-auto grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-15 items-start lg:gap-[60px]">
           {/* Left: info */}
           <div>
-            <h2 className="font-['Syne'] font-bold text-[28px] text-[var(--text-primary)] mb-8">
+            <h2 className="font-display font-bold text-[28px] text-[var(--text-primary)] mb-8">
               Get in Touch
             </h2>
 
@@ -93,10 +93,10 @@ export default function ContactPage() {
                     <Icon size={18} />
                   </div>
                   <div>
-                    <div className="font-['Syne'] font-semibold text-[15px] text-[var(--text-primary)] mb-0.5">
+                    <div className="font-display font-semibold text-[15px] text-[var(--text-primary)] mb-0.5">
                       {value}
                     </div>
-                    <div className="font-['JetBrains_Mono'] text-[12px] text-[var(--text-muted)]">
+                    <div className="font-mono text-[12px] text-[var(--text-muted)]">
                       {desc}
                     </div>
                   </div>
@@ -104,7 +104,7 @@ export default function ContactPage() {
               ))}
             </div>
 
-            <h3 className="font-['Syne'] font-bold text-xl text-[var(--text-primary)] mb-5">
+            <h3 className="font-display font-bold text-xl text-[var(--text-primary)] mb-5">
               Find Me Online
             </h3>
             <div className="flex flex-col gap-3">
@@ -120,10 +120,10 @@ export default function ContactPage() {
                     <Icon size={17} />
                   </div>
                   <div className="grow">
-                    <div className="font-['Syne'] font-semibold text-sm text-[var(--text-primary)]">
+                    <div className="font-display font-semibold text-sm text-[var(--text-primary)]">
                       {label}
                     </div>
-                    <div className="font-['JetBrains_Mono'] text-[11px] text-[var(--text-muted)]">
+                    <div className="font-mono text-[11px] text-[var(--text-muted)]">
                       {desc}
                     </div>
                   </div>
@@ -136,14 +136,14 @@ export default function ContactPage() {
           {/* Right: form */}
           <div>
             <div className="p-10 rounded-[20px] border border-[var(--border)] bg-[var(--bg-card)]">
-              <h2 className="font-['Syne'] font-bold text-2xl text-[var(--text-primary)] mb-8">
+              <h2 className="font-display font-bold text-2xl text-[var(--text-primary)] mb-8">
                 Send a Message
               </h2>
 
               {status === 'sent' ? (
                 <div className="p-10 rounded-2xl bg-[rgba(34,197,94,0.08)] border border-[rgba(34,197,94,0.3)] text-center">
                   <div className="text-[48px] mb-4">✅</div>
-                  <h3 className="font-['Syne'] font-bold text-[22px] text-[var(--text-primary)] mb-2">
+                  <h3 className="font-display font-bold text-[22px] text-[var(--text-primary)] mb-2">
                     Message Sent!
                   </h3>
                   <p className="text-[var(--text-secondary)] text-[15px]">
@@ -151,7 +151,7 @@ export default function ContactPage() {
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
-                    className="mt-5 px-6 py-2.5 rounded-lg border border-[var(--border)] bg-transparent text-[var(--text-secondary)] font-['DM_Sans'] text-sm cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                    className="mt-5 px-6 py-2.5 rounded-lg border border-[var(--border)] bg-transparent text-[var(--text-secondary)] font-body text-sm cursor-pointer hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
                   >
                     Send another
                   </button>
@@ -160,7 +160,7 @@ export default function ContactPage() {
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
-                      <label className="block font-['DM_Sans'] text-sm font-medium text-[var(--text-secondary)] mb-2" htmlFor="name">
+                      <label className="block font-body text-sm font-medium text-[var(--text-secondary)] mb-2" htmlFor="name">
                         Your Name *
                       </label>
                       <input
@@ -171,11 +171,11 @@ export default function ContactPage() {
                         value={form.name}
                         onChange={handleChange}
                         placeholder="Omar Ahmed"
-                        className="w-full px-4 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] font-['DM_Sans'] text-[15px] outline-none transition-all focus:border-[var(--accent)]"
+                        className="w-full px-4 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] font-body text-[15px] outline-none transition-all focus:border-[var(--accent)]"
                       />
                     </div>
                     <div>
-                      <label className="block font-['DM_Sans'] text-sm font-medium text-[var(--text-secondary)] mb-2" htmlFor="email">
+                      <label className="block font-body text-sm font-medium text-[var(--text-secondary)] mb-2" htmlFor="email">
                         Email Address *
                       </label>
                       <input
@@ -186,13 +186,13 @@ export default function ContactPage() {
                         value={form.email}
                         onChange={handleChange}
                         placeholder="you@example.com"
-                        className="w-full px-4 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] font-['DM_Sans'] text-[15px] outline-none transition-all focus:border-[var(--accent)]"
+                        className="w-full px-4 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] font-body text-[15px] outline-none transition-all focus:border-[var(--accent)]"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block font-['DM_Sans'] text-sm font-medium text-[var(--text-secondary)] mb-2" htmlFor="subject">
+                    <label className="block font-body text-sm font-medium text-[var(--text-secondary)] mb-2" htmlFor="subject">
                       Subject *
                     </label>
                     <select
@@ -201,7 +201,7 @@ export default function ContactPage() {
                       required
                       value={form.subject}
                       onChange={handleChange}
-                      className="w-full px-4 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] font-['DM_Sans'] text-[15px] outline-none transition-all focus:border-[var(--accent)] cursor-pointer"
+                      className="w-full px-4 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] font-body text-[15px] outline-none transition-all focus:border-[var(--accent)] cursor-pointer"
                     >
                       <option value="">Select a subject</option>
                       <option value="fullstack">Full-Stack Project</option>
@@ -213,7 +213,7 @@ export default function ContactPage() {
                   </div>
 
                   <div>
-                    <label className="block font-['DM_Sans'] text-sm font-medium text-[var(--text-secondary)] mb-2" htmlFor="message">
+                    <label className="block font-body text-sm font-medium text-[var(--text-secondary)] mb-2" htmlFor="message">
                       Message *
                     </label>
                     <textarea
@@ -224,14 +224,14 @@ export default function ContactPage() {
                       value={form.message}
                       onChange={handleChange}
                       placeholder="Tell me about your project, timeline, and budget..."
-                      className="w-full px-4 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] font-['DM_Sans'] text-[15px] outline-none transition-all focus:border-[var(--accent)] resize-vertical min-h-[140px]"
+                      className="w-full px-4 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] text-[var(--text-primary)] font-body text-[15px] outline-none transition-all focus:border-[var(--accent)] resize-vertical min-h-[140px]"
                     />
                   </div>
 
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className={`flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-['DM_Sans'] font-semibold text-base transition-all duration-200 ${
+                    className={`flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-body font-semibold text-base transition-all duration-200 ${
                       status === 'sending'
                         ? 'bg-[var(--text-muted)] cursor-not-allowed'
                         : 'bg-[var(--accent)] text-white hover:bg-[var(--accent-light)]'

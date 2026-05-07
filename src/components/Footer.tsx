@@ -16,10 +16,10 @@ export default function Footer() {
         <div className="flex flex-wrap items-center justify-between gap-6">
           {/* Brand */}
           <div>
-            <div className="font-['Syne'] font-extrabold text-xl text-[var(--text-primary)] mb-1.5">
+            <div className="font-display font-extrabold text-xl text-[var(--text-primary)] mb-1.5">
               Omar Gehad
             </div>
-            <p className="text-[var(--text-muted)] text-sm font-['DM_Sans']">
+            <p className="text-[var(--text-muted)] text-sm font-body">
               MERN Stack Developer · Available for freelance
             </p>
           </div>
@@ -30,7 +30,7 @@ export default function Footer() {
               <Link
                 key={href}
                 href={href}
-                className="text-[var(--text-muted)] no-underline text-sm font-['DM_Sans'] transition-colors duration-200 hover:text-[var(--accent)]"
+                className="text-[var(--text-muted)] no-underline text-sm font-body transition-colors duration-200 hover:text-[var(--accent)]"
               >
                 {['Home', 'About', 'Projects', 'Contact'][i]}
               </Link>
@@ -57,7 +57,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Khamsat"
-              className="w-10 h-10 rounded-xl border border-[var(--border)] flex items-center justify-center text-[var(--text-muted)] no-underline text-[11px] font-['Syne'] font-bold transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[rgba(56,82,180,0.08)]"
+              className="w-10 h-10 rounded-xl border border-[var(--border)] flex items-center justify-center text-[var(--text-muted)] no-underline text-[11px] font-display font-bold transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[rgba(56,82,180,0.08)]"
             >
               KH
             </a>
@@ -65,7 +65,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 pt-6 border-t border-[var(--border)] flex flex-wrap justify-between gap-3">
-          <p className="text-[var(--text-muted)] text-[13px] font-['JetBrains_Mono']">
+          <p className="text-[var(--text-muted)] text-[13px] font-mono">
             © {year} Omar Gehad. All rights reserved.
           </p>
         </div>
