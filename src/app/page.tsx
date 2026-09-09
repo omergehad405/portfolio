@@ -5,10 +5,10 @@ import Link from 'next/link'
 import { ArrowRight, Download, Github, Linkedin, ExternalLink, Code2, Zap, Layers, Globe } from 'lucide-react'
 
 const skills = [
-  'React.js', 'Node.js', 'MongoDB', 'Express.js', 'TypeScript', 'Next.js',
-  'REST APIs', 'Tailwind CSS', 'Redux', 'JWT Auth', 'Docker', 'Git',
-  'React.js', 'Node.js', 'MongoDB', 'Express.js', 'TypeScript', 'Next.js',
-  'REST APIs', 'Tailwind CSS', 'Redux', 'JWT Auth', 'Docker', 'Git',
+  'Html', 'Css', 'JavaScript', 'React.js', 'Node.js', 'MongoDB', 'Express.js', 'Next.js',
+  'REST APIs', 'Tailwind CSS', 'zustand', 'JWT Auth', 'Git',
+  'Html', 'Css', 'JavaScript', 'React.js', 'Node.js', 'MongoDB', 'Express.js', 'Next.js',
+  'REST APIs', 'Tailwind CSS', 'zustand', 'JWT Auth', 'Git',
 ]
 
 const stats = [
@@ -130,12 +130,14 @@ export default function HomePage() {
               View My Work <ArrowRight size={18} />
             </Link>
 
-            <Link
-              href="/about"
+            <a
+              href="https://drive.google.com/file/d/1m-l4FWWarG3LYhoqrSovhWDFcAwbAHU6/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] font-body font-semibold text-base no-underline transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
             >
-              <Download size={18} /> Download CV
-            </Link>
+              <Download size={18} /> Open CV
+            </a>
           </div>
 
           {/* Social links */}

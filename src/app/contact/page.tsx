@@ -1,7 +1,12 @@
 'use client'
 
 import { useState } from 'react'
+import emailjs from '@emailjs/browser'
 import { Send, Github, Linkedin, ExternalLink, Mail, MapPin, Clock, MessageCircle } from 'lucide-react'
+
+const EMAILJS_SERVICE_ID = 'service_at3dj1i'
+const EMAILJS_TEMPLATE_ID = 'template_2o5xw4g'
+const EMAILJS_PUBLIC_KEY = 'JaNW9V45GnMviSTP1'
 
 const contactLinks = [
   {
@@ -45,10 +50,25 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('sending')
-    // Simulate send (replace with your EmailJS / Formspree / API call)
-    await new Promise(r => setTimeout(r, 1500))
-    setStatus('sent')
-    setForm({ name: '', email: '', subject: '', message: '' })
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          subject: form.subject,
+          message: form.message,
+          reply_to: form.email,
+        },
+        EMAILJS_PUBLIC_KEY,
+      )
+      setStatus('sent')
+      setForm({ name: '', email: '', subject: '', message: '' })
+    } catch (err) {
+      console.error('EmailJS error:', err)
+      setStatus('error')
+    }
   }
 
   return (
@@ -156,6 +176,23 @@ export default function ContactPage() {
                     Send another
                   </button>
                 </div>
+              ) : status === 'error' ? (
+                <div className="p-10 rounded-2xl bg-[rgba(239,68,68,0.08)] border border-[rgba(239,68,68,0.3)] text-center">
+                  <div className="text-[48px] mb-4">❌</div>
+                  <h3 className="font-display font-bold text-[22px] text-[var(--text-primary)] mb-2">
+                    Something went wrong
+                  </h3>
+                  <p className="text-[var(--text-secondary)] text-[15px]">
+                    Couldn't send your message. Please try again or reach me directly at{' '}
+                    <a href="mailto:omergehad593@gmail.com" className="text-[var(--accent)] underline">omergehad593@gmail.com</a>.
+                  </p>
+                  <button
+                    onClick={() => setStatus('idle')}
+                    className="mt-5 px-6 py-2.5 rounded-lg border border-[rgba(239,68,68,0.4)] bg-transparent text-[rgba(239,68,68,0.8)] font-body text-sm cursor-pointer hover:bg-[rgba(239,68,68,0.1)] transition-colors"
+                  >
+                    Try again
+                  </button>
+                </div>
               ) : (
                 <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -231,11 +268,10 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={status === 'sending'}
-                    className={`flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-body font-semibold text-base transition-all duration-200 ${
-                      status === 'sending'
+                    className={`flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-body font-semibold text-base transition-all duration-200 ${status === 'sending'
                         ? 'bg-[var(--text-muted)] cursor-not-allowed'
                         : 'bg-[var(--accent)] text-white hover:bg-[var(--accent-light)]'
-                    }`}
+                      }`}
                   >
                     {status === 'sending' ? (
                       <>Sending...</>

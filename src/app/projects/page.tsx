@@ -7,32 +7,6 @@ import { ExternalLink, Github, ArrowRight } from 'lucide-react'
 const projects = [
   {
     id: 1,
-    title: 'afaq altareq',
-    category: 'landing page',
-    desc: 'landing page for afaq altareq company which is a company for car rent',
-    tech: ['html 5', 'css 3', 'javascript'],
-    image: '/Projects/afaqaltareq.png',
-    liveUrl: 'https://afaqaltariq.sa/',
-    githubUrl: '#',
-    featured: true,
-    color: '#E8622A',
-    emoji: '🚗',
-  },
-  {
-    id: 2,
-    title: 'flower.',
-    category: 'e-commerce',
-    desc: 'flower. is a e-commerce website for flower shop',
-    tech: ['reactJS', 'scss'],
-    image: '/Projects/flower-shop.png',
-    liveUrl: 'https://omergehad405.github.io/Flower_shop/',
-    githubUrl: 'https://github.com/omergehad405/Flower_shop',
-    featured: false,
-    color: '#8B5CF6',
-    emoji: '🌸',
-  },
-  {
-    id: 3,
     title: 'Codeya',
     category: 'fullStack',
     desc: "a fullStack software agency that delivers full-stack web solutions for clients. built the agency's official website.",
@@ -45,7 +19,7 @@ const projects = [
     emoji: '💻',
   },
   {
-    id: 4,
+    id: 2,
     title: 'EduMaster',
     category: 'fullStack',
     desc: 'AI-powered education platform with structured learning tracks, automated quiz generation from notes, and adaptive level testing.',
@@ -58,20 +32,7 @@ const projects = [
     emoji: '🎓',
   },
   {
-    id: 5,
-    title: 'FreshEat',
-    category: 'fullStack',
-    desc: 'FreshEat is a fullstack project that allows users to order food online',
-    tech: ['react', 'tailwind', 'firebase'],
-    image: '/Projects/freshEat.png',
-    liveUrl: 'https://fresh-heat.vercel.app/',
-    githubUrl: 'https://github.com/omergehad405/FreshHeat',
-    featured: false,
-    color: '#E8622A',
-    emoji: '🍔',
-  },
-  {
-    id: 6,
+    id: 3,
     title: 'Khadamati',
     category: 'fullStack',
     desc: 'Khadamati is a Full-stack service marketplace connecting clients with professionals.',
@@ -84,7 +45,59 @@ const projects = [
     emoji: '🎙️',
   },
   {
+    id: 4,
+    title: 'growthifypulse',
+    category: 'website',
+    desc: 'growthifypulse company help organizations unlock growth through market intelligence.',
+    tech: ['React.js', 'Tailwind css', 'Framer Motion', 'next.js'],
+    image: '/Projects/growthifypulse.png',
+    liveUrl: 'https://growthifypulse.com/',
+    githubUrl: '#',
+    featured: false,
+    color: '#E8622A',
+    emoji: '🚗',
+  },
+  {
+    id: 5,
+    title: 'afaq altareq',
+    category: 'landing page',
+    desc: 'landing page for afaq altareq company which is a company for car rent',
+    tech: ['html 5', 'css 3', 'javascript'],
+    image: '/Projects/afaqaltareq.png',
+    liveUrl: 'https://afaqaltariq.sa/',
+    githubUrl: '#',
+    featured: false,
+    color: '#E8622A',
+    emoji: '🚗',
+  },
+  {
+    id: 6,
+    title: 'flower.',
+    category: 'e-commerce',
+    desc: 'flower. is a e-commerce website for flower shop',
+    tech: ['reactJS', 'scss'],
+    image: '/Projects/flower-shop.png',
+    liveUrl: 'https://omergehad405.github.io/Flower_shop/',
+    githubUrl: 'https://github.com/omergehad405/Flower_shop',
+    featured: false,
+    color: '#8B5CF6',
+    emoji: '🌸',
+  },
+  {
     id: 7,
+    title: 'FreshEat',
+    category: 'fullStack',
+    desc: 'FreshEat is a fullstack project that allows users to order food online',
+    tech: ['react', 'tailwind', 'firebase'],
+    image: '/Projects/freshEat.png',
+    liveUrl: 'https://fresh-heat.vercel.app/',
+    githubUrl: 'https://github.com/omergehad405/FreshHeat',
+    featured: false,
+    color: '#E8622A',
+    emoji: '🍔',
+  },
+  {
+    id: 8,
     title: 'Fyrre Magazine',
     category: 'website',
     desc: 'Next.js Site Template for interactive magazine & podcast platform',
@@ -97,7 +110,7 @@ const projects = [
     emoji: '🎙️',
   },
   {
-    id: 8,
+    id: 9,
     title: 'Organic-store',
     category: 'e-commerce',
     desc: 'Organic Store is a E-commerce project that allows users to order organic products online',
@@ -144,11 +157,10 @@ export default function ProjectsPage() {
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2 rounded-full border transition-all duration-200 cursor-pointer font-body font-medium text-sm ${
-                  activeFilter === cat
-                    ? 'border-[var(--accent)] bg-[rgba(232,98,42,0.12)] text-[var(--accent)]'
-                    : 'border-[var(--border)] bg-transparent text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)]'
-                }`}
+                className={`px-5 py-2 rounded-full border transition-all duration-200 cursor-pointer font-body font-medium text-sm ${activeFilter === cat
+                  ? 'border-[var(--accent)] bg-[rgba(232,98,42,0.12)] text-[var(--accent)]'
+                  : 'border-[var(--border)] bg-transparent text-[var(--text-secondary)] hover:border-[var(--accent)] hover:text-[var(--accent)]'
+                  }`}
               >
                 {cat}
               </button>
@@ -167,7 +179,7 @@ export default function ProjectsPage() {
                 className="card-hover rounded-[20px] border border-[var(--border)] bg-[var(--bg-card)] overflow-hidden flex flex-col"
               >
                 {/* Project visual */}
-                <div 
+                <div
                   className="h-[180px] border-b border-[var(--border)] flex items-center justify-center relative overflow-hidden"
                   style={{ background: `${project.color}15` }}
                 >
@@ -179,7 +191,7 @@ export default function ProjectsPage() {
                     />
                   ) : (
                     <>
-                      <div 
+                      <div
                         className="absolute -top-10 -right-10 w-40 h-40 rounded-full opacity-10"
                         style={{ background: project.color }}
                       />
@@ -187,7 +199,7 @@ export default function ProjectsPage() {
                     </>
                   )}
                   {project.featured && (
-                    <div 
+                    <div
                       className="absolute top-4 left-4 px-3 py-1 rounded-full text-white text-[11px] font-mono font-medium z-[2]"
                       style={{ background: project.color }}
                     >
