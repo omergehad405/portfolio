@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { ArrowRight, Download, Github, Linkedin, ExternalLink, Code2, Zap, Layers, Globe } from 'lucide-react'
+import { projects } from '@/data/projects'
 
 const skills = [
   'Html', 'Css', 'JavaScript', 'React.js', 'Node.js', 'MongoDB', 'Express.js', 'Next.js',
@@ -274,8 +275,123 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ─── LATEST PROJECTS ─── */}
+      <section className="px-6 py-[100px] bg-[var(--bg-primary)] border-t border-[var(--border)] relative overflow-hidden">
+        {/* Accent Glow Orb */}
+        <div className="orb w-[500px] h-[500px] bg-[var(--accent)] -top-[200px] -right-[150px] pointer-events-none" />
+
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <p className="section-tag">Featured Work</p>
+              <h2 className="font-display font-extrabold text-[clamp(32px,4vw,52px)] text-[var(--text-primary)] mb-4">
+                Latest Projects
+              </h2>
+              <p className="text-[var(--text-secondary)] text-[17px] leading-[1.7] max-w-[560px]">
+                A curated look at my latest production web applications, client solutions, and full-stack projects.
+              </p>
+            </div>
+
+            <Link
+              href="/projects"
+              className="hidden md:inline-flex items-center gap-2 font-body font-semibold text-[var(--accent)] hover:text-[var(--accent-light)] transition-colors group text-[15px]"
+            >
+              Explore All Projects
+              <ArrowRight size={18} className="transition-transform duration-200 group-hover:translate-x-1" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.slice(0, 3).map((project) => (
+              <div
+                key={project.id}
+                className="card-hover rounded-[24px] border border-[var(--border)] bg-[var(--bg-card)] overflow-hidden flex flex-col group transition-all duration-300"
+              >
+                {/* Visual Preview */}
+                <div
+                  className="h-[210px] border-b border-[var(--border)] flex items-center justify-center relative overflow-hidden bg-[var(--bg-secondary)]"
+                  style={{ background: `${project.color}15` }}
+                >
+                  {project.image ? (
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="project-image w-full h-full object-cover transition-transform duration-500 ease-out"
+                    />
+                  ) : (
+                    <span className="text-[56px]">{project.emoji}</span>
+                  )}
+
+                  {/* Category Pill */}
+                  <span className="absolute top-3.5 right-3.5 px-3 py-1 rounded-full text-[11px] font-mono uppercase tracking-wider bg-[var(--bg-card)]/90 backdrop-blur-md border border-[var(--border)] text-[var(--text-secondary)] font-medium z-[2] shadow-sm">
+                    {project.category}
+                  </span>
+
+                  {/* Featured Badge */}
+                  {project.featured && (
+                    <span className="absolute top-3.5 left-3.5 px-3 py-1 rounded-full text-white text-[11px] font-mono font-medium z-[2] shadow-sm bg-[var(--accent)]">
+                      Featured
+                    </span>
+                  )}
+                </div>
+
+                {/* Content */}
+                <div className="p-6 sm:p-7 flex flex-col flex-1">
+                  <h3 className="font-display font-bold text-xl text-[var(--text-primary)] mb-2.5 group-hover:text-[var(--accent)] transition-colors">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-[var(--text-secondary)] text-[14px] leading-[1.65] mb-5 flex-1 line-clamp-3">
+                    {project.desc}
+                  </p>
+
+                  {/* Tech stack */}
+                  <div className="flex flex-wrap gap-1.5 mb-6">
+                    {project.tech.map((t) => (
+                      <span key={t} className="tech-badge">{t}</span>
+                    ))}
+                  </div>
+
+                  {/* Action links */}
+                  <div className="flex items-center gap-3 pt-4 border-t border-[var(--border)]">
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-[var(--accent)] text-white font-body font-semibold text-[13px] no-underline transition-all duration-200 hover:bg-[var(--accent-light)] flex-1 shadow-sm hover:shadow"
+                    >
+                      <ExternalLink size={15} /> Live Demo
+                    </a>
+
+                    <a
+                      href={project.githubUrl && project.githubUrl !== '#' ? project.githubUrl : 'https://github.com/omergehad405'}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.title} on GitHub`}
+                      className="w-10 h-10 rounded-xl border border-[var(--border)] bg-[var(--bg-secondary)] flex items-center justify-center text-[var(--text-muted)] no-underline transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)] hover:bg-[var(--bg-card)]"
+                    >
+                      <Github size={16} />
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile view all link */}
+          <div className="mt-10 text-center md:hidden">
+            <Link
+              href="/projects"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] font-body font-semibold text-sm transition-all duration-200 hover:border-[var(--accent)] hover:text-[var(--accent)]"
+            >
+              Explore All Projects <ArrowRight size={16} />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ─── CTA BANNER ─── */}
-      <section className="px-6 py-[100px] bg-[var(--bg-primary)] border-t border-[var(--border)]">
+      <section className="px-6 py-[100px] bg-[var(--bg-secondary)] border-t border-[var(--border)]">
         <div className="max-w-[800px] mx-auto text-center">
           <div className="inline-block px-15 py-25 rounded-3xl border border-[var(--border)] bg-[var(--bg-card)] relative overflow-hidden md:px-[60px] md:py-[100px]">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] bg-[var(--accent)] rounded-full blur-[100px] opacity-[0.06] pointer-events-none" />

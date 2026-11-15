@@ -9,8 +9,7 @@ import { useTheme } from './ThemeProvider'
 const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
-  { href: '/projects', label: 'Projects' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/projects', label: 'Projects' }
 ]
 
 export default function Navbar() {
@@ -21,17 +20,22 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
-    window.addEventListener('scroll', handleScroll)
+    handleScroll() // set the correct state on first load / refresh
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-[1000] transition-all duration-300 ${
-        scrolled
-          ? 'bg-[var(--bg-primary)] border-b border-[var(--border)] backdrop-blur-xl'
-          : 'bg-transparent border-b border-transparent'
-      }`}
+      className={`
+        fixed left-1/2 -translate-x-1/2 z-[1000] w-full
+        transition-[width,top,border-radius,background-color,border-color,box-shadow]
+        duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+        ${scrolled
+          ? 'bg-[var(--bg-primary)] border-b border-[var(--border)] backdrop-blur-xl shadow-lg lg:w-1/2 lg:min-w-[760px] lg:top-3 lg:rounded-2xl lg:border'
+          : 'top-0 bg-transparent border-b border-transparent shadow-none lg:rounded-none'
+        }
+      `}
     >
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="flex items-center justify-between h-[70px]">
@@ -53,11 +57,10 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`px-4 py-2 rounded-lg font-body font-medium text-[15px] no-underline transition-all duration-200 ${
-                  pathname === link.href
-                    ? 'text-[var(--accent)] bg-[rgba(56,82,180,0.1)]'
-                    : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-                }`}
+                className={`px-4 py-2 rounded-lg font-body font-medium text-[15px] no-underline transition-all duration-200 ${pathname === link.href
+                  ? 'text-[var(--accent)] bg-[rgba(56,82,180,0.1)]'
+                  : 'text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -66,7 +69,6 @@ export default function Navbar() {
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            {/* Theme toggle */}
             <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
@@ -75,7 +77,6 @@ export default function Navbar() {
               {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
             </button>
 
-            {/* CTA */}
             <Link
               href="/contact"
               className="hidden lg:block px-5 py-[10px] rounded-xl bg-[var(--accent)] text-white font-body font-semibold text-sm no-underline transition-all duration-200 hover:bg-[var(--accent-light)]"
@@ -83,9 +84,9 @@ export default function Navbar() {
               Hire Me
             </Link>
 
-            {/* Mobile menu toggle */}
             <button
               onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
               className="lg:hidden w-10 h-10 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] cursor-pointer flex items-center justify-center text-[var(--text-primary)]"
             >
               {menuOpen ? <X size={18} /> : <Menu size={18} />}
@@ -102,11 +103,10 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className={`block px-4 py-[14px] rounded-xl font-body font-medium text-base no-underline mb-1 ${
-                pathname === link.href
-                  ? 'text-[var(--accent)] bg-[rgba(56,82,180,0.1)]'
-                  : 'text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
-              }`}
+              className={`block px-4 py-[14px] rounded-xl font-body font-medium text-base no-underline mb-1 ${pathname === link.href
+                ? 'text-[var(--accent)] bg-[rgba(56,82,180,0.1)]'
+                : 'text-[var(--text-primary)] hover:bg-[var(--bg-secondary)]'
+                }`}
             >
               {link.label}
             </Link>
